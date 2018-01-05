@@ -5,12 +5,15 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    int tmp=-1;
+    int ok=-1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,6 +90,34 @@ public class MainActivity extends AppCompatActivity {
         });
         builder.setCancelable(false); //只有在AlertDialog畫面內才有作用
         builder.show();
+    }
+
+    public void click04(View v) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle("單選項型對話框");
+        final String fruits[] = {"香蕉","蘋果","梨子"};
+        final TextView tv03 = (TextView)findViewById(R.id.textView3);
+        builder.setSingleChoiceItems(fruits, ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                tmp = i;
+            }
+        });
+        builder.setPositiveButton("確定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                ok = tmp;
+                tv03.setText(fruits[ok]);
+            }
+        });
+        builder.setNeutralButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        builder.show();
+
     }
 
 }
