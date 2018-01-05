@@ -97,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
         builder.setTitle("單選項型對話框");
         final String fruits[] = {"香蕉","蘋果","梨子"};
         final TextView tv03 = (TextView)findViewById(R.id.textView3);
+        tmp = ok;
         builder.setSingleChoiceItems(fruits, ok, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
@@ -110,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
                 tv03.setText(fruits[ok]);
             }
         });
-        builder.setNeutralButton("取消", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 
