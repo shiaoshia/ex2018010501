@@ -79,6 +79,13 @@ public class MainActivity extends AppCompatActivity {
                 tv02.setText(fruits[i]);
             }
         });
+        builder.setNeutralButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        builder.setCancelable(false); //只有在AlertDialog畫面內才有作用
         builder.show();
     }
 
