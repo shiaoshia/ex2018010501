@@ -54,19 +54,18 @@ public class MainActivity extends AppCompatActivity {
         builder.setPositiveButton("確認", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Toast.makeText(MainActivity.this,"按下確認",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this,"按下確認",Toast.LENGTH_SHORT).show();
                 tv.setText(et.getText().toString());
             }
         });
         builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Toast.makeText(MainActivity.this,"按下了取消",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this,"按下了取消",Toast.LENGTH_SHORT).show();
                 tv.setText("沒輸入資料");
             }
         });
         builder.show();
-
     }
 
 }
