@@ -11,7 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-
+    boolean[] chk = new boolean[5];
     int tmp=-1;
     int ok=-1;
     @Override
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void click02(View v) {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-        builder.setTitle("This is Title");
+        builder.setTitle("對話框");
         final EditText et = new EditText(MainActivity.this);
         final TextView tv = (TextView)findViewById(R.id.textView);
         builder.setView(et);
@@ -119,6 +119,41 @@ public class MainActivity extends AppCompatActivity {
         });
         builder.show();
 
+    }
+
+    public void click05(View v) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle("多選列表");
+        final String fruits[] = {"蘋果","香蕉","梨子","芭樂","草莓"};
+        final TextView tv04 = (TextView)findViewById(R.id.textView4);
+
+        builder.setMultiChoiceItems(fruits, chk, new DialogInterface.OnMultiChoiceClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i, boolean b) {
+
+            }
+        });
+
+        builder.setPositiveButton("確定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                StringBuilder sb = new StringBuilder();
+                for(int j=0;j<=4;j++) {
+                    if(chk[j]) {
+                        sb.append(fruits[j] + ",");
+                    }
+                }
+                tv04.setText(sb.toString());
+            }
+        });
+
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        builder.show();
     }
 
 }
