@@ -68,4 +68,18 @@ public class MainActivity extends AppCompatActivity {
         builder.show();
     }
 
+    public void click03(View v) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle("列表型對話框");
+        final String[] fruits = {"香蕉","蘋果","芭樂"};
+        final TextView tv02 = (TextView)findViewById(R.id.textView2);
+        builder.setItems(fruits, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                tv02.setText(fruits[i]);
+            }
+        });
+        builder.show();
+    }
+
 }
